@@ -11,7 +11,7 @@ bien entendu de trouver ce plus petit carré le plus rapidement possible malgré
 d’agencements qui croît de manière explosive avec chaque pièce supplémentaire.
 
 
-// Entrée du programme
+# Entrée du programme
 
 Votre exécutable doit prendre en paramètre un (et un seul) fichier décrivant la liste
 des Tetriminos à agencer. Ce fichier est formaté de façon très précise : chaque description
@@ -28,7 +28,7 @@ blocs d’un Tetriminos, soit un ’.’ lorsque la case est vide.
 sur l’un ou l’autre de ses 4 côtés.
 
 
-// Le plus petit carré
+# Le plus petit carré
 
 Le but de ce projet est d’agencer les Tetriminos entre eux pour former le plus petit
 carré possible, sachant que ce carré peut présenter des trous quand les pièces données ne
@@ -42,7 +42,7 @@ où chaque Tetriminos est disposé le plus en haut, puis le plus à gauche possi
 moment de son placement.
 
 
---
-Fillit
+
+#Fillit
 Can you feel it ?
 Team pedago pedago@staff.42.fr
