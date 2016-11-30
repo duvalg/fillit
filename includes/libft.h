@@ -40,8 +40,8 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 char				*ft_strdup(const char *src);
-size_t			ft_strlen(const char *str);
-size_t			ft_intlen(const size_t n);
+size_t				ft_strlen(const char *str);
+size_t				ft_intlen(const size_t n);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -55,7 +55,7 @@ char				*ft_strnew(size_t size);
 char				*ft_strcat(char *s1, const char *s2);
 void				ft_strclr(char *s);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
-size_t			ft_strlcat(char *dst, const char *src, size_t size);
+size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strstr(const char *big, const char *little);
 char				*ft_strnstr(const char *big, \
 		const char *little, size_t len);
@@ -80,9 +80,9 @@ void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-t_list			*ft_lstnew(void const *content, size_t content_size);
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list				*ft_lstnew(void const *content, size_t content_size);
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					checkbuf(char *str);
-size_t			lstinsert(char *buf, t_list *tetriminos, size_t len);
+size_t				lstinsert(char *buf, t_list *tetriminos, size_t len);
 
 #endif
