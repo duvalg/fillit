@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-int			check(char *buf, size_t i, size_t width, size_t height)
+size_t		check(char *buf, size_t i, size_t width, size_t height)
 {
 	size_t	count;
 
@@ -41,7 +41,7 @@ int			check(char *buf, size_t i, size_t width, size_t height)
 	return (count);
 }
 
-int			check_buf(char *buf)
+int		checkbuf(char *buf)
 {
 	if (!buf)
 		return (-1);

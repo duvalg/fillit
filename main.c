@@ -17,19 +17,20 @@
 #include <fcntl.h>
 #include <stdio.h> //daw
 
-int			ft_lstcreate(int len)
+int			lstcreate(char *buf, size_t len)
 {
 	t_list	*tetriminos;
 
 	if (!(tetriminos = ft_memalloc(sizeof(t_list) * len)))
 	{
-		ft_putstr("ft_lstcreate() doesn't allocate memory");
+		ft_putstr("lstcreate() doesn't allocate memory\n");
 		return (-1);
 	}
+	lstinsert(buf, tetriminos, len);
 	return (0);
 }
 
-int			ft_open(char *argv)
+int			openbuf(char *argv)
 {
 	int		fd;
 	int		ret;
@@ -42,12 +43,12 @@ int			ft_open(char *argv)
 	}
 	ret = read(fd, buf, BUF_SIZE);
 	buf[ret] = '\0';
-	if ((check_buf(buf) == -1))
+	if ((checkbuf(buf) == -1))
 	{
 		ft_putstr("error : invalid Tetriminos\n");
 		return (-1);
 	}
-	ft_lstcreate(check_buf(buf));
+	lstcreate(buf, checkbuf(buf));
 	return (0);
 }
 
@@ -58,6 +59,6 @@ int			main(int argc, char **argv)
 		ft_putstr("usage : fillit [tetriminos source file]\n");
 		return (-1);
 	}
-	ft_open(argv[1]);
+	openbuf(argv[1]);
 	return (1);
 }

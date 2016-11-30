@@ -21,9 +21,9 @@ SRC = ft_atoi.c ft_bzero.c ft_intlen.c \
 	  ft_strnequ.c ft_strnew.c ft_strnstr.c \
 	  ft_strrchr.c ft_strsplit.c ft_strstr.c \
 	  ft_strsub.c ft_strtrim.c ft_tolower.c \
-	  ft_toupper.c ft_verif.c
+	  ft_toupper.c ft_verif.c ft_lstinsert.c
 SRC_FULL = $(addprefix $(PATH_SRC), $(SRC))
-HEADER = ./includes/libft.h
+HEADER = ./includes/
 OBJ = $(SRC:.c=.o)
 FLAG = -Wall -Werror -Wextra
 EXEC = fillit
@@ -31,15 +31,23 @@ EXEC = fillit
 all : $(NAME)
 
 $(NAME) :
+	@echo "make..."
 	@gcc $(FLAG) -I $(HEADER) -c $(SRC_FULL)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	gcc $(FLAG) main.c $(NAME) -o $(EXEC)
+	@echo "[OK]\n"
 
 clean :
+	@echo "clean..."
 	@rm -f $(OBJ)
+	@echo "[OK]\n"
 
 fclean :
+	@echo "fclean..."
 	@rm -f $(OBJ) $(NAME) $(EXEC)
+	@echo "[OK]\n"
 
 re : fclean $(NAME)
+
+.PHONY : all clean fclean re
