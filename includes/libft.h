@@ -6,7 +6,7 @@
 /*   By: gduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 18:20:45 by gduval            #+#    #+#             */
-/*   Updated: 2016/11/28 17:24:50 by gduval           ###   ########.fr       */
+/*   Updated: 2016/12/02 16:05:12 by gduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,7 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					checkbuf(char *str);
 size_t				lstinsert(char *buf, t_list *tetriminos, size_t len);
+char				*ft_realloc(char **src, size_t size, size_t len, \
+		size_t option);
 
 #endif

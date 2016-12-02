@@ -19,7 +19,6 @@ int       browsecase(char *buf, t_list *tetriminos)
   size_t  tmp_height;
   size_t  width;
 
-  ft_putstr("browsecase() opened\n");
   if (!tetriminos || !buf)
     return (-1);
   height = 0;
