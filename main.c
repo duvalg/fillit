@@ -6,7 +6,7 @@
 /*   By: gduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:32:36 by gduval            #+#    #+#             */
-/*   Updated: 2016/11/28 17:14:30 by gduval           ###   ########.fr       */
+/*   Updated: 2016/12/03 16:34:21 by gduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,6 @@
 #include "includes/libft.h"
 #include <unistd.h>
 #include <fcntl.h>
-#include <stdio.h> //daw
-
-int			lstcreate(char *buf, size_t len)
-{
-	t_list	*tetriminos;
-
-	if (!(tetriminos = ft_memalloc(sizeof(t_list) * len)))
-	{
-		ft_putstr("lstcreate() doesn't allocate memory\n");
-		return (-1);
-	}
-	lstinsert(buf, tetriminos, len);
-	return (0);
-}
 
 int			openbuf(char *argv)
 {
@@ -48,7 +34,6 @@ int			openbuf(char *argv)
 		ft_putstr("error : invalid Tetriminos\n");
 		return (-1);
 	}
-	lstcreate(buf, checkbuf(buf));
 	return (0);
 }
 
