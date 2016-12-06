@@ -1,0 +1,23 @@
+Yo ! :D
+
+T'as bien fait de remanier mon code, no soucis !
+La solution du Sub et du Split m'a l'air vraiment cool, et puis reutiliser les fonction de la lib, c'est toujours cool de toute facon :D
+
+T'inquietes pas, va ! Je sais que t'es une bosseuse, donc vas a ton rythme, on est pas presse !
+
+Bon, pour en venir au modifs d'aujourd'hui :
+
+Quand je suis arrive, j'ai pull toute tes modifs (t'as l'air d'avoir sacrement bien bosse d'ailleur !) et j'ai tente de compiler, pour voir les erreurs qu'il pouvait y avoir.
+Du coup, on a du avoir une liste de 200 erreurs, un truc assez flippant dans le genre... xD
+J'en ai corrige une bonne partie, reste a voir si j'ai pas fais planter certaines de tes fonctions (Notamment toutes les fonctions qui prennent un t_fillit* en parametre, a qui tu donnes BUF et a qui je donne maintenant fillit)
+
+J'ai vu qu'on avait pas mal de fonction doublon, j'y ai pas touche parce que je sais pas lesquelles sont les versions les plus recentes. Je te laisse faire le tri !
+
+Les erreurs de compilation qu'il reste sont du a des erreur sur les fonctions : ft_verif, ft_solver, ft_display et ft_freetout, que j'ai pas reussis a trouver dans le projet !
+
+Voili voilou, je pense pas rester tres tard aujourd'hui. Te tue pas la dessus, prend le temps et hesite pas a compiler le plus souvent possible pour voir si ca bloque quelque part ! ;)
+
+J'espere qu'on pourra se checker demain pour bosser dessus !
+Hesite pas a m'appeler si t'as un soucis !
+
+A tchussssss !

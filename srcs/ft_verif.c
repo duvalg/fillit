@@ -1,73 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   verif.c                                            :+:      :+:    :+:   */
+/*   ft_verif.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gduval <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tbouline <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 17:01:42 by gduval            #+#    #+#             */
-/*   Updated: 2016/12/03 16:36:19 by gduval           ###   ########.fr       */
+/*   Created: 2016/12/05 23:49:08 by tbouline          #+#    #+#             */
+/*   Updated: 2016/12/06 15:57:50 by gduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-static void	error_message(size_t n)
-{
-	ft_putstr("bad tetriminos [");
-	ft_putnbr((int)n + 1);
-	ft_putstr("]\n");
-}
-
-static int	is_valid(char *buf, size_t i)
+static int	is_valid(t_fillit *fillit, size_t i)
 {
 	size_t	div;
 	size_t	line;
 
 	div = i / 21;
-	if (buf)
+	if (BUF)
 	{
 		line = (i - (div * 21)) / 5;
 		if (line == 0)
 		{
-			if (buf[i + 1] == '#' || buf[i - 1] == '#' || buf[i + 5] == '#')
+			if (BUF[i + 1] == '#' || BUF[i - 1] == '#' || BUF[i + 5] == '#')
 				return (0);
 		}
 		if (line == 3)
 		{
-			if (buf[i + 1] == '#' || buf[i - 1] == '#' || buf[i - 5] == '#')
+			if (BUF[i + 1] == '#' || BUF[i - 1] == '#' || BUF[i - 5] == '#')
 				return (0);
 		}
 		if (line > 0 && line < 3)
 		{
-			if (buf[i + 1] == '#' || buf[i - 1] == '#' || buf[i + 5] == '#' || \
-			buf[i - 5] == '#')
+			if (BUF[i + 1] == '#' || BUF[i - 1] == '#' || BUF[i + 5] == '#' || \
+					BUF[i - 5] == '#')
 				return (0);
 		}
 	}
 	return (-1);
 }
 
-static int	check_char(char *buf, size_t i, size_t key)
+static int	check_char(t_fillit *fillit, size_t i)
 {
-	while (buf[i] != '\0')
+	int		key;
+
+	key = 0;
+	while (BUF[i] != '\0')
 	{
-		if (buf[i] == '#')
+		fillit->faulty_piece = i / 21;
+		if (BUF[i] == '#')
 		{
-			if (is_valid(buf, i) == - 1)
-			{
-				error_message(i / 21);
-				return (-1);
-			}
+			if (is_valid(fillit, i) == -1)
+				return (i / 21); // retourne le num de la piece erronee
 		}
-		key = (buf[i] == '#') ? key + 1 : key;
-		if (buf[i] == '\n' && (buf[i + 1] == '\n' || buf[i + 1] == '\0'))
+		key = (BUF[i] == '#') ? key + 1 : key;
+		if (BUF[i] == '\n' && (BUF[i + 1] == '\n' || BUF[i + 1] == '\0'))
 		{
 			if (key != 4)
-			{
-				error_message(i / 21);
-				return (-1);
-			}
+				return (i / 21);
 			key = 0;
 		}
 		i++;
@@ -75,40 +66,40 @@ static int	check_char(char *buf, size_t i, size_t key)
 	return (0);
 }
 
-static int	check(char *buf, size_t i, size_t width, size_t height)
+static int	check(t_fillit *fillit, size_t i)
 {
 	size_t	count;
 
 	count = 1;
-	while (buf[i++] != '\0')
+	while (BUF[i++])
 	{
-		width++;
-		if (buf[i - 1] == '\n' && width != 5 && height != 4)
-			return (-1);
-		if (buf[i - 1] != '\n' && buf[i - 1] != '.' && buf[i - 1] != '#')
-			return (-1);
-		if (height == 4)
+		WIDTH++;
+		if (BUF[i - 1] == '\n' && WIDTH != 5 && HEIGHT != 4)
+			return (i / 21);
+		if (BUF[i - 1] != '\n' && BUF[i - 1] != '.' && BUF[i - 1] != '#')
+			return (i / 21);
+		if (HEIGHT == 4)
 		{
-			if (buf[i] != '.' && buf[i] != '#')
-				return (-1);
+			if (BUF[i] != '.' && BUF[i] != '#')
+				return (i / 21);
 			count++;
-			height = 0;
-			width = 0;
+			HEIGHT = 0;
+			WIDTH = 0;
 		}
-		if (width == 5)
+		if (WIDTH == 5)
 		{
-			if (buf[i - 1] != '\n')
-				return (-1);
-			height++;
-			width = 0;
+			if (BUF[i - 1] != '\n')
+				return (i / 21);
+			HEIGHT++;
+			WIDTH = 0;
 		}
 	}
-	return (count > 26 || check_char(buf, 0, 0) != 0) ? -1 : count;
+	return ((count > 26 || check_char(fillit, 0) != 0) ? -1 : count);
 }
 
-int			checkbuf(char *buf)
+int			checkbuf(t_fillit *fillit)
 {
-	if (!buf)
+	if (!BUF)
 		return (-1);
-	return (check(buf, 0, 0, 0));
+	return (check(fillit, 0));
 }

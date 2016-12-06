@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "fillit.h"
+#include "includes/libft.h"
+#include "includes/fillit.h"
 
 t_fillit	free_map(t_fillit *fillit)
 {

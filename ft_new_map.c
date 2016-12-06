@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "fillit.h"
+#include "includes/libft.h"
+#include "includes/fillit.h"
 
 void	ft_new_map(t_map *map)
 {

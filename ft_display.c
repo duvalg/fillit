@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include "fillit.h"
+#include "includes/fillit.h"
 
 t_fillit		ft_new_map(t_fillit *fillit)
 {
@@ -25,5 +25,3 @@ t_fillit		ft_new_map(t_fillit *fillit)
 		return (fillit);
 	}
 }
-
-

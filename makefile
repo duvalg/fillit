@@ -21,8 +21,7 @@ SRC = ft_atoi.c ft_bzero.c ft_intlen.c \
 	  ft_strnequ.c ft_strnew.c ft_strnstr.c \
 	  ft_strrchr.c ft_strsplit.c ft_strstr.c \
 	  ft_strsub.c ft_strtrim.c ft_tolower.c \
-	  ft_toupper.c ft_verif.c ft_lstinsert.c \
-	  ft_realloc.c
+	  ft_toupper.c ft_verif.c ft_realloc.c
 
 SRC_FULL = $(addprefix $(PATH_SRC), $(SRC))
 HEADER = ./includes/

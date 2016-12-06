@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# include "fillit.h"
 
 typedef struct		s_list
 {
@@ -82,8 +83,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-int					checkbuf(char *str);
-size_t				lstinsert(char *buf, t_list *tetriminos, size_t len);
+int					ft_verif(char *str);
 char				*ft_realloc(char **src, size_t size, size_t option);
 
 #endif
