@@ -6,35 +6,40 @@
 /*   By: tbouline <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 17:41:00 by tbouline          #+#    #+#             */
-/*   Updated: 2016/12/03 12:43:00 by gduval           ###   ########.fr       */
+/*   Updated: 2016/12/06 06:28:10 by tbouline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include <unistd.h>
-# include <string.h>
-# include <stdlib.h>
+# include <fcntl.h>
+# include "ncludes/libft.h"
 
-typedef struct	s_point
-{
-	int			x;
-	int			y;
-}				t_point;
+# define SUCCESS 0
+# define ARGUMENT 1
+# define OPEN 2
+# define READ 3
+# define MALLOC 4
+# define TETRIMINOS 5
+# define MAP ERROR 6
 
-typedef struct	s_map
-{
-	int			size;
-	char		**array;
-}				t_map;
+# define BUF fillit->buf
+# define HEIGHT fillit->height
+# define WIDTH fillit->width
+# define MAP fillit->map
 
-typedef struct	s_tetriminos
+typedef struct	s_fillit
 {
-	char		**pos;
-	int			width;
+	int			pieces;
+	int			fd;
 	int			height;
-	char		value;
-}				t_tetriminos;
+	int			width;
+	int			ret;
+	size_t		key;
+	size_t		faulty_piece;
+	char		*buf;
+	char		***map;
+}				t_fillit;
 
 #endif
